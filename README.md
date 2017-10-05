@@ -38,5 +38,11 @@ DB_NAME="pic"
 - Navigate to e.g. ``http://pic.dev/``
 - Navigate to ``http://phpmyadmin-pic.dev/`` (both username and password are 'root')
 
+## Resetting or reimporting database
+If you need to reset the database or reimport and SQL dump change the `.env` configuration and run:
+```
+vagrant ssh -c "sh /vagrant/scripts/database.sh"
+```
+
 ## Troubleshooting
-Noticed strange behaviours when using certain TLDs (e.g. `.local`) so stick to `.dev` suffix for domains
+- Noticed strange behaviours when using certain TLDs (e.g. `.local`) so stick to `.dev` suffix for domains
