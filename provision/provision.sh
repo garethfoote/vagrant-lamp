@@ -39,6 +39,7 @@ sudo a2enmod rewrite
 
 echo "-- Creating virtual hosts --"
 sudo ln -fs /vagrant/public/ /var/www/app
+sudo cat /dev/null > /etc/apache2/sites-available/default.conf
 cat << EOF | sudo tee -a /etc/apache2/sites-available/default.conf
 <Directory "/var/www/">
     AllowOverride All
@@ -51,7 +52,7 @@ cat << EOF | sudo tee -a /etc/apache2/sites-available/default.conf
 
 <VirtualHost *:80>
     DocumentRoot /var/www/phpmyadmin
-    ServerName ${HOSTNAME}-phpmyadmin.dev
+    ServerName phpmyadmin-${HOSTNAME}
 </VirtualHost>
 EOF
 sudo a2dissite 000-default.conf
@@ -71,4 +72,4 @@ sudo tar -xzvf phpMyAdmin-4.0.10.11-english.tar.gz -C /var/www/
 sudo rm phpMyAdmin-4.0.10.11-english.tar.gz
 sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 
-bash "${CWD}/scripts/database.sh"
+bash "${CWD}/provision/database.sh"
