@@ -33,15 +33,14 @@ DB_NAME="pic"
 # DB_SQL_DUMP="sql/latest.sql" # If present will import this sql.
 # DB_REPLACEDOMAIN="app.dev" # Will replace this domain with $HOSTNAME
 ```
-
 - Run ``vagrant up``
 - Navigate to e.g. ``http://pic.dev/``
 - Navigate to ``http://phpmyadmin-pic.dev/`` (both username and password are 'root')
 
 ## Resetting or reimporting database
-If you need to reset the database or reimport and SQL dump change the `.env` configuration and run:
+If you need to reset the database or reimport an SQL dump change the `.env` configuration and run:
 ```
-vagrant ssh -c "sh /vagrant/scripts/database.sh"
+vagrant ssh -c "sh /vagrant/provision/database.sh"
 ```
 
 ## Troubleshooting
